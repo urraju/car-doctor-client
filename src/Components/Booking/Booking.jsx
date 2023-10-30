@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 const Booking = () => {
   const { user } = UseAuth();
   const [myData, setMyData] = useState([]);
-  const url = `http://localhost:5000/booking?email=${user?.email}`;
+  const url = `https://car-server-site-rust.vercel.app/booking?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -36,7 +36,7 @@ const Booking = () => {
    
 
   const handleDelete = (id) => {
-     fetch(`http://localhost:5000/booking/${id}`,
+     fetch(`https://car-server-site-rust.vercel.app/booking/${id}`,
        {method : 'DELETE'}
      )
      .then(res => res.json())
@@ -51,7 +51,7 @@ const Booking = () => {
      })
   }
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/booking/${id}`, {
+    fetch(`https://car-server-site-rust.vercel.app/booking/${id}`, {
         method : 'PATCH',
         headers : {'content-type' : 'application/json'},
         body : JSON.stringify({status : 'confirm'})

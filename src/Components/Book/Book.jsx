@@ -25,7 +25,7 @@ const Book = () => {
       service_id : _id,
     };
     console.log(order);
-    fetch('http://localhost:5000/booking',{
+    fetch('https://car-server-site-rust.vercel.app/booking',{
         method : "POST",
         headers : {
             'content-type' : 'application/json'

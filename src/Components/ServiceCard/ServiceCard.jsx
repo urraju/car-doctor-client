@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const ServiceCard = () => {
     const [data , setData ] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://car-server-site-rust.vercel.app/services')
         .then(res => res.json())
         .then(item => setData(item))
     },[])
