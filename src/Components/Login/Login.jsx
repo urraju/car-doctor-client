@@ -17,7 +17,7 @@ const Login = () => {
       .then((res) => {
         console.log(res.user);
         const userEmail = {email}
-        axios.post(`https://car-server-site-rust.vercel.app/jwt`, userEmail,{
+        axios.post(`https://car-server-site-rust.vercel.app//jwt`, userEmail,{
           withCredentials : true
         })
         .then(res => {

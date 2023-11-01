@@ -8,13 +8,16 @@ import { useQuery } from "@tanstack/react-query";
 const Booking = () => {
   const { user } = UseAuth();
   const [myData, setMyData] = useState([]);
-  const url = `https://car-server-site-rust.vercel.app/booking?email=${user?.email}`;
+ 
   useEffect(() => {
-    fetch(url)
+    const url = `https://car-server-site-rust.vercel.app/booking?email=${user?.email}`;
+    if(user?.email){
+      fetch(url, {credentials : "include"})
       .then((res) => res.json())
       .then((data) => setMyData(data));
-    console.log(myData);
-  }, [url]);
+    }
+     
+  }, [user?.email]);
 
     // axios.get(url,{ withCredentials : true})
     // .then(res => setMyData(res.data))
@@ -30,10 +33,6 @@ const Booking = () => {
     //   }
       
     // })
-    
-   
-    
-   
 
   const handleDelete = (id) => {
      fetch(`https://car-server-site-rust.vercel.app/booking/${id}`,

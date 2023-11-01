@@ -8,7 +8,7 @@ const ServiceCard = () => {
     useEffect(() => {
         fetch('https://car-server-site-rust.vercel.app/services')
         .then(res => res.json())
-        .then(item => setData(item))
+        .then(data => setData(data))
     },[])
     return (
         <div className='mt-40'>
